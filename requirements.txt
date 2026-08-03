@@ -2,3 +2,6 @@ numpy
 pybullet
 gym==0.21.0
 stable-baselines3
+mujoco
+mujoco-viewer
+imageio

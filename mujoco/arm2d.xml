@@ -1,0 +1,25 @@
+<mujoco model="two_link">
+  <compiler angle="degree"/>
+  <default>
+    <joint limited="true"/>
+    <geom contype="1" conaffinity="1"/>
+  </default>
+  <option timestep="0.01"/>
+  <worldbody>
+    <body name="base" pos="0 0 0">
+      <body name="link1" pos="0 0 0">
+        <joint name="joint1" type="hinge" axis="0 1 0" pos="0 0 0" range="-180 180"/>
+        <geom name="geom1" type="capsule" fromto="0 0 0 0 0 0.3" size="0.05"/>
+        <body name="link2" pos="0 0 0.3">
+          <joint name="joint2" type="hinge" axis="0 1 0" pos="0 0 0" range="-180 180"/>
+          <geom name="geom2" type="capsule" fromto="0 0 0 0 0 0.3" size="0.05"/>
+          <site name="ee" pos="0 0 0.3" size="0.02"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="act1" joint="joint1" kp="100"/>
+    <position name="act2" joint="joint2" kp="100"/>
+  </actuator>
+</mujoco>
